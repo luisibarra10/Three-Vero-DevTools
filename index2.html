@@ -1,0 +1,237 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Vero</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+
+<body>
+<!--
+    <div class="row">
+        <div id="featuresContainer">
+            <div class="col-sm" id="featureChoice"></div>
+            <div class="col-sm" id="messageChoice"></div>
+        </div>
+
+        <div id="canvasContainer">
+            <div class="col-sm" id="canvasRowContainer">
+                <canvas id="babylonCanvas" touch-action="none"></canvas>
+            </div>
+        </div>
+
+        <div id="optionsContainer">
+            <div id="sceneOptions"></div>
+            
+        </div>
+
+    </div>
+-->
+
+<div class="container-fluid">     
+    <div class="row">
+         <div class="col-lg-8 col-md-6">
+            <canvas id="threeCanvas" touch-action="none"></canvas>
+        </div>
+          <div class="col-lg-4 col-md-6">  
+            <div id="sceneOptions">
+                <div id="accordion">
+
+
+                    <div class="card card-camera">
+                      <div class="card-header" id="headingOne">
+                        <h5 class="mb-0">
+                          <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                            Camera
+                          </button>
+                        </h5>
+                      </div>
+                  
+                      <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                        <div class="card-body">
+                          <div class="input-group input-group-sm mb-3">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text" id="inputGroup-sizing-sm">Position X:</span>
+                            </div>
+                            <input type="number" class="form-control" id="positionX" value="100" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                          </div>
+
+                          <div class="slidecontainer">
+                            <input type="range" min="-1000" max="1000"  step="1" value="100" class="slider cameraXRange" id="cameraXRange">
+                            <p>Value :  <span id="cameraXRangedemo"></span></p>
+                          </div>
+
+                          <div class="input-group input-group-sm mb-3">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text" id="inputGroup-sizing-sm">Position Y:</span>
+                            </div>
+                            <input type="number" class="form-control" id="positionY" value="100" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                          </div>
+
+                          <div class="slidecontainer">
+                            <input type="range" min="-1000" max="1000"  step="1" value="100" class="slider cameraYRange" id="cameraYRange">
+                            <p>Value :  <span id="cameraYRangedemo"></span></p>
+                          </div>
+
+                          <div class="input-group input-group-sm mb-3">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text" id="inputGroup-sizing-sm">Position Z:</span>
+                            </div>
+                            <input type="number" class="form-control" id="positionZ" value="150" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                          </div>
+
+
+                          <div class="slidecontainer">
+                            <input type="range" min="-1000" max="1000"  step="1" value="150" class="slider cameraZRange" id="cameraZRange">
+                            <p>Value :  <span id="cameraZRangedemo"></span></p>
+                          </div>
+
+
+                        </div>
+                      </div>
+                    </div>
+
+
+                    <div class="card card-hemisphere">
+                      <div class="card-header" id="headingTwo">
+                        <h5 class="mb-0">
+                          <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            Hemisphere Light
+                          </button>
+                        </h5>
+                      </div>
+
+
+                      <div id="collapseTwo" class="collapse " aria-labelledby="headingTwo" data-parent="#accordion">
+                          <div class="card-body">
+                            <div class="input-group input-group-sm mb-3">
+                              <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-sm">Intensity:</span>
+                              </div>
+                              <input type="number" class="form-control" id="hemisphereIntensity" value="10" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                            </div>
+
+                            <div class="slidecontainer">
+                              <input type="range" min="0" max="20"  value="11" class="slider hemisphereRange" id="hemisphereRange">
+                              <p>Value :  <span id="hemispheredemo"></span></p>
+                            </div>
+
+
+                        </div>
+                      </div>
+                    </div>
+
+
+
+                    <div class="card card-bulb-power">
+                      <div class="card-header" id="headingThree">
+                        <h5 class="mb-0">
+                          <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            Bulb Power
+                          </button>
+                        </h5>
+                      </div>
+                  
+                      <div id="collapseThree" class="collapse " aria-labelledby="headingThree" data-parent="#accordion">
+                        <div class="card-body">
+                          <div class="input-group input-group-sm mb-3">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text" id="inputGroup-sizing-sm">Bulb Power: </span>
+                            </div>
+                            <input type="number" class="form-control" id="bulblightPower" value="135" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                          </div>
+
+                          
+                          <div class="slidecontainer">
+                            <input type="range" min="0" max="2000"  value="135" class="slider bulblightPowerRange" id="bulblightPowerRange">
+                            <p>Value :  <span id="bulblightPowerdemo"></span></p>
+                          </div>
+
+                         
+
+
+
+                  </div>
+            </div> 
+            
+                   </div>
+
+                   <div class="card card-exposure">
+                    <div class="card-header" id="headingFour">
+                      <h5 class="mb-0">
+                        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                          Exposure
+                        </button>
+                      </h5>
+                    </div>
+
+
+                    <div id="collapseFour" class="collapse " aria-labelledby="headingFour" data-parent="#accordion">
+                        <div class="card-body">
+                          <div class="input-group input-group-sm mb-3">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text" id="inputGroup-sizing-sm">Exposure:</span>
+                            </div>
+                            <input type="number" class="form-control" id="exposure" value="0.55" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                          </div>
+
+                          <div class="slidecontainer">
+                            <input type="range" min="0" max="1.5"  step="0.01" value="0.55" class="slider exposureRange" id="exposureRange">
+                            <p>Value :  <span id="exposuredemo"></span></p>
+                          </div>
+
+
+                      </div>
+                    </div>
+                  </div>
+
+
+                  <div class="card card-ambient">
+                    <div class="card-header" id="headingFive">
+                      <h5 class="mb-0">
+                        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                          Ambient Light
+                        </button>
+                      </h5>
+                    </div>
+
+
+                    <div id="collapseFive" class="collapse " aria-labelledby="headingFive" data-parent="#accordion">
+                        <div class="card-body">
+                          <div class="input-group input-group-sm mb-3">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text" id="inputGroup-sizing-sm">Intensity:</span>
+                            </div>
+                            <input type="number" class="form-control" id="ambientLight" value="1" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                          </div>
+
+                          <div class="slidecontainer">
+                            <input type="range" min="-10" max="10"  step="0.1" value="1" class="slider ambientRange" id="ambientRange">
+                            <p>Valor:  <span id="ambientdemo"></span></p>
+                          </div>
+
+
+                      </div>
+                    </div>
+                  </div>
+
+                  
+
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+    
+    
+    <script type="module" src="js/app.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+</html>
